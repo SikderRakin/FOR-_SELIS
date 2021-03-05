@@ -5,7 +5,8 @@
     
     >
     <div class="card">
-      <button  (click)="addOn(author)">Add Favaruite</button>
+      <button *ngIf="!_author.isFavorite"  (click)="addOn(author)">Add To Favorite</button>
+      <button  *ngIf="_author.isFavorite" (click)="addRemove(author)">Remove From Favorite</button>
       <div class="container">
         <h4 class="list-group-item-heading">{{author.name}}</h4>
         <p class="list-group-item-text">{{ author.bio }}</p>

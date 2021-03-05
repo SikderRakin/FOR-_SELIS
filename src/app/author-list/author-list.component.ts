@@ -1,3 +1,4 @@
+import { EventEmitter, Output } from '@angular/core';
 import { Component, OnInit,Input } from '@angular/core';
 import{AuthorListService} from '../shared/autor-service'
 @Component({ 
@@ -7,17 +8,29 @@ import{AuthorListService} from '../shared/autor-service'
 })
 export class AuthorListComponent implements OnInit {
   constructor(private autor:AuthorListService) { }
-  @Input() author: any=[];
-
+  @Output() authorEmmit = new EventEmitter<any>();
+  _author
+  @Input() set author(value) {
+    if (value !== undefined) {
+      this._author = value;
+    }
+  }
+  get author() {
+    return this._author;
+  }
+    btn="Add favorite"
   ngOnInit(): void {
     console.log("gg");
-  
-    console.log(this.author);
+ 
   }
   addOn(item){
-    
-    debugger;
- this.autor.addIngredients(item);
+ item.isFavorite=true;
+ this.authorEmmit.emit(item);
    }
+   addRemove(item){
+    item.isFavorite=false;
+    this.authorEmmit.emit(item);
+      }
 
 }
+

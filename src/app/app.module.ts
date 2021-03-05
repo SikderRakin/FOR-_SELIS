@@ -11,15 +11,17 @@ import { HeaderComponent } from './header/header.component';
 import { AuthorListComponent } from './author-list/author-list.component';
 import{AppRoutingModule} from 'src/app/app.routing.modules';
 import{AuthorListService} from './shared/autor-service';
-import { FavoriteAutorComponent } from './favorite-autor/favorite-autor.component';
-import { MainListComponent } from './main-list/main-list.component'
+// import { FavoriteAutorComponent } from './favorite-autor/favorite-autor.component';
+
+import { AuthorsComponent } from './authors/authors.component'
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AuthorListComponent,
-    FavoriteAutorComponent,
-    MainListComponent
+    // FavoriteAutorComponent,
+    // MainListComponent,
+    AuthorsComponent
   ],
   imports: [
     BrowserModule,
