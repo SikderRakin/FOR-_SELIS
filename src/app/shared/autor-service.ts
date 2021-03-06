@@ -20,7 +20,7 @@ export class AuthorListService{
     }
     getAllIngredient(){
         debugger;
-        console.log(this.authorList)
+        // console.log(this.authorList)
          return this.authorList.slice();
      
       }
@@ -29,7 +29,7 @@ export class AuthorListService{
         
       
         this.authorList.push(author);  
-        console.log( this.authorList);
+        // console.log( this.authorList);
         this.authorChange.next(this.authorList.slice())
       }
       
