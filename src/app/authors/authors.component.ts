@@ -35,7 +35,7 @@ export class AuthorsComponent implements OnInit {
         
       
     });
-      console.log(event);
+     
     });
     }
 
@@ -47,7 +47,7 @@ export class AuthorsComponent implements OnInit {
         element.isFavorite=false;
         
       });
-      console.log(this.author);
+   
     });
   }
   authorEmmit(event:any){

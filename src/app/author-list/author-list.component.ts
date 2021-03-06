@@ -20,7 +20,7 @@ export class AuthorListComponent implements OnInit {
   }
     btn="Add favorite"
   ngOnInit(): void {
-    console.log("gg");
+  
  
   }
   addOn(item){
