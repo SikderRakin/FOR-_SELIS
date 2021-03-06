@@ -7,6 +7,7 @@ const appRoute:Routes=[
     // {path:'recipe', component:RecipesComponent,children:[
     //  {path:'',component:RecipeStartComponent},
     //   {path:'new', component:RecipeEditComponent},
+    {path:'', redirectTo:'/authorList',pathMatch:'full'},
     {path:'landing-page',component:LandingPageComponent},
    
    {path:'authorList',component:AuthorsComponent}

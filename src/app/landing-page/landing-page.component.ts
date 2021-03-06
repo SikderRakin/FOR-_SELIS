@@ -6,37 +6,55 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+  code=` <input id="textInput"></input>
+
+  <button id="btn" style="height: 20px;width: 60px;"> Show</button>
+
+  <script>
+  document.getElementById('btn').onclick = function() {
+  var text = document.getElementById("textInput").value;
+   largestConsecutiveRrepeatingCharacter (text);
+       
+  }
+
+  function largestConsecutiveRrepeatingCharacter (text) {
   
+      let result = "";
+      if (text && typeof text === 'string' && text.trim()) {
+          function reducerCallback(oldValue, currentValue) {
+              if (oldValue.lastChar === currentValue) {
+                  oldValue.count += 1;
+              } else {
+                  oldValue.count = 1;
+              }
+              oldValue.lastChar = currentValue;
+              if (oldValue.count > oldValue.result.countTracker) {
+                  oldValue.result = { repeatingChar: currentValue, countTracker: oldValue.count };
+              } else {
+                  oldValue.result = oldValue.result;
+              }
+              return oldValue;
+          }
+          const initialValue = {
+              result: { repeatingChar: "", countTracker: 0 }
+          };
+          const { result } = text.split('').reduce(reducerCallback, initialValue);
+          finalResult = result.repeatingChar.repeat(result.countTracker);
+              alert(finalResult)
+              return finalResult;
+           
+      }
+              alert(finalResult)
+              return finalResult;
+      
+      
+  }
+    
+  
+  </script>`
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
-// char maxRepeating(string str) 
-// { 
-//     int len = str.length(); 
-//     int count = 0; 
-  
-//     // Find the maximum repeating character 
-//     // starting from str[i] 
-//     char res = str[0]; 
-//     for (int i=0; i<len; i++) 
-//     { 
-//         int cur_count = 1; 
-//         for (int j=i+1; j<len; j++) 
-//         { 
-//             if (str[i] != str[j]) 
-//                 break; 
-//             cur_count++; 
-//         } 
-  
-//         // Update result if required 
-//         if (cur_count > count) 
-//         { 
-//             count = cur_count; 
-//             res = str[i]; 
-//         } 
-//     } 
-//     return res; 
-// }

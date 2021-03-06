@@ -1,0 +1,45 @@
+<input id="textInput"></input>
+<button id="btn" style="height: 20px;width: 60px;"> Show</button>
+<script>
+    document.getElementById('btn').onclick = function() {
+   
+        var text = document.getElementById("textInput").value;
+    
+        largestConsecutiveRrepeatingCharacter (text);
+       
+}
+function largestConsecutiveRrepeatingCharacter (text) {
+
+    let result = "";
+    if (text && typeof text === 'string' && text.trim()) {
+        function reducerCallback(oldValue, currentValue) {
+            if (oldValue.lastChar === currentValue) {
+                oldValue.count += 1;
+            } else {
+                oldValue.count = 1;
+            }
+            oldValue.lastChar = currentValue;
+            if (oldValue.count > oldValue.result.countTracker) {
+                oldValue.result = { repeatingChar: currentValue, countTracker: oldValue.count };
+            } else {
+                oldValue.result = oldValue.result;
+            }
+            return oldValue;
+        }
+        const initialValue = {
+            result: { repeatingChar: "", countTracker: 0 }
+        };
+        const { result } = text.split('').reduce(reducerCallback, initialValue);
+        finalResult = result.repeatingChar.repeat(result.countTracker);
+            alert(finalResult)
+        return finalResult;
+         
+    }
+    alert(finalResult)
+    return finalResult;
+    
+    
+}
+  
+
+</script>

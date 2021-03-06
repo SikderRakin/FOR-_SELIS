@@ -2,7 +2,7 @@
 <div class="col span_2_of_4">
 <app-author-list *ngFor="let item of favoriteAuthorList ; let i=index" 
 [author]="item" (authorEmmit)="authorEmmit($event)"></app-author-list></div>
-<div class="col span_2_of_4">
+<div class="col2 span_2_of_4">
 <app-author-list *ngFor="let item of author ; let i=index" 
     [author]="item" (authorEmmit)="authorEmmit($event)"></app-author-list>
     <mat-paginator [length]="100"
